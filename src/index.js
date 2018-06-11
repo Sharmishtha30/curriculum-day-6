@@ -3,8 +3,12 @@
 // Would the following code work? If not, check out this function's test cases
 // and correct the function.
 function timeout(name) {
-  return setTimeout(() => `Hello ${name}`, 300);
+  const wait = time => new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+  return wait(300).then(() => `Hello ${name}`);
 }
+//   return setTimeout(() => `Hello ${name}`, 300);
 
 // 2 (*)
 function sayHi(name) {
